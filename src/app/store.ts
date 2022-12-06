@@ -1,10 +1,13 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-import counterReducer from '../features/counter/counterSlice';
+import holeySocksSlice from './holeySocksSlice';
+import { wsLocalhostConnect } from './middleware/createMySocketMiddleware';
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    chat: holeySocksSlice
   },
+
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(wsLocalhostConnect)
 });
 
 export type AppDispatch = typeof store.dispatch;
