@@ -10,6 +10,7 @@ const createMySocketMiddleware = (
 ): Middleware => {
   return (storeAPI) => {
     const socket = io(url);
+
     events.forEach((event: string) => {
       socket.on(event, (message: any) => {
         storeAPI.dispatch({
@@ -33,5 +34,8 @@ const createMySocketMiddleware = (
 };
 
 export const wsLocalhostConnect = createMySocketMiddleware(
-  "ws://localhost:8000", "holeySocks", ["getMessage"], ["sendMessage"]
+  "ws://localhost:8000",
+  "holeySocks",
+  ["getMessage", "getHistory", "getUser", "getOnlineUsers"],
+  ["sendMessage", "login"]
 );

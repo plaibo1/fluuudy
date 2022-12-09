@@ -13,6 +13,19 @@
   }
 }
 
+*::-webkit-scrollbar {
+  width: 5px;
+}
+*::-webkit-scrollbar-track {
+  @apply bg-slate-200;
+}
+
+*::-webkit-scrollbar-thumb {
+  @apply bg-slate-400;;
+  border-radius: 20px;
+  border: none
+}
+
 .App-header {
   min-height: 100vh;
   display: flex;
