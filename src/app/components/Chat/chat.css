@@ -1,0 +1,17 @@
+.msg {
+  @apply shadow-md text-base;
+  display: inline-flex;
+  max-width: 300px;
+  background-color: #fff;
+  padding: 5px 12px;
+  border-radius: 12px;
+  border-bottom-left-radius: 2px;
+  margin-bottom: 3px;
+}
+
+.msg.my {
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 2px;
+  background-color: #3c60ff;
+  color: #fff;
+}
