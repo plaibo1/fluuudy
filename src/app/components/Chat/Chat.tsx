@@ -1,7 +1,9 @@
 import React from 'react'
-import ChatInput from './ChatInput';
-import ChatMessages from './ChatMessages';
-import ConnectedUsers from './ConnectedUsers';
+import ChatInput from './ChatFroms/ChatInput';
+import ChatMessages from './ChatMessages/ChatMessages';
+import ConnectedUsers from './ChatUsers/ConnectedUsers';
+
+import "./chat.css";
 
 const Chat = () => {
   return (

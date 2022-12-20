@@ -1,10 +1,38 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+export type TMessage = {
+  id: string;
+  text: string;
+  username: string;
+  isYour?: boolean;
+  avatar: string;
+  repliedMessage?: Omit<repliedMessage, 'replyMessageAvatar'> | null
+}
 
-const initialState = {
-  user: null as {username: string, connectionId: string, avatar: string} | null,
-  users: {} as Record<string, {connectionId: string, username?: string, avatar?: string}>,
-  messages: [] as {id: string, text: string, username: string, isYour?: boolean, avatar: string}[],
+export type repliedMessage = {
+  replyMessageText: string;
+  replyMessageId: string;
+  replyMessageAvatar: string;
+  replyMessageUsername: string;
+} 
+
+type TInitialState = {
+  user: { username: string; connectionId: string; avatar: string } | null;
+  users: Record<
+    string,
+    { connectionId: string; username?: string; avatar?: string }
+  >;
+
+  messages: TMessage[];
+
+  replyingMessage: repliedMessage | null;
+}; 
+
+const initialState: TInitialState = {
+  user: null,
+  users: {},
+  messages: [],
+  replyingMessage: null,
 }
 
 const holeySocksSlice = createSlice({
@@ -30,13 +58,17 @@ const holeySocksSlice = createSlice({
       state.messages.unshift(action.payload);
     },
     
-    sendMessage: (state, action: PayloadAction<{id: string, text: string, username: string, avatar: string}>) => {
+    sendMessage: (state, action: PayloadAction<TMessage>) => {
+    },
+
+    setReplyingMessage: (state, action:PayloadAction<TInitialState['replyingMessage']>) => {
+      state.replyingMessage = action.payload;
     }
   }
 })
 
 // const test = Object.keys(holeySocksSlice.actions)
 
-export const { sendMessage, login } = holeySocksSlice.actions;
+export const { sendMessage, login, setReplyingMessage } = holeySocksSlice.actions;
 
 export default holeySocksSlice.reducer;

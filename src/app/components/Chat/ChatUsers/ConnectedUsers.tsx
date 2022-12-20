@@ -1,11 +1,9 @@
 import React from 'react'
-import { useAppSelector } from '../../hooks'
+import { useAppSelector } from '../../../hooks';
 
 const ConnectedUsers = () => {
   const onlineUsers = useAppSelector(state => state.chat.users);
   const user = useAppSelector(state => state.chat.user)
-
-  console.log(onlineUsers);
 
   const randomColor = () => {
     const bgColors = ['bg-indigo-500', 'bg-green-300', 'bg-orange-400', 'bg-orange-300', 'bg-blue-500'];
@@ -42,6 +40,7 @@ const ConnectedUsers = () => {
             </div>
             <div>
               {onlineUsers[onlineUser].username}
+
               {user?.connectionId === onlineUsers[onlineUser].connectionId ? (
                 <span className="text-xs ml-1">(you)</span>
               ) : null}

@@ -34,7 +34,7 @@ const createMySocketMiddleware = (
 };
 
 export const wsLocalhostConnect = createMySocketMiddleware(
-  "ws://localhost:8000",
+  process.env.REACT_APP_API_KEY || "ws://localhost:8000",
   "holeySocks",
   ["getMessage", "getHistory", "getUser", "getOnlineUsers"],
   ["sendMessage", "login"]

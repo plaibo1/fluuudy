@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { login } from '../../holeySocksSlice';
-import { useAppDispatch } from '../../hooks';
+import { login } from '../../../holeySocksSlice';
+import { useAppDispatch } from '../../../hooks';
+
 
 
 const ChatAuthName = () => {
@@ -10,7 +11,7 @@ const ChatAuthName = () => {
   const [userImage, setUserImage] = useState<string | null>(null);
 
   useEffect(() => {
-    const id = Math.floor(Math.random() * 100)
+    const id = Math.floor(Math.random() * 200)
 
     fetch(`https://api.jikan.moe/v4/characters/${id}`)
       .then(res => res.json())
