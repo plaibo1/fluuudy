@@ -55,7 +55,7 @@ const holeySocksSlice = createSlice({
     },
 
     getMessage: (state, action) => {
-      state.messages.unshift(action.payload);
+      state.messages.push(action.payload);
     },
     
     sendMessage: (state, action: PayloadAction<TMessage>) => {
