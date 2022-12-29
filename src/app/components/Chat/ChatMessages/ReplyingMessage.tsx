@@ -9,9 +9,8 @@ const ReplyingMessage = () => {
   return (
     <>
       {replyingMessage ? (
-        <a
-          onClick={(e) => e.stopPropagation()}
-          href={`#${replyingMessage.replyMessageId}`}
+        <div
+          onClick={() => {}}
           className="text-sm bg-slate-100 rounded-md p-2 w-full"
         >
 
@@ -37,7 +36,7 @@ const ReplyingMessage = () => {
 
             <span>⤴</span>
           </div>
-        </a>
+        </div>
       ) : null}
     </>
   )

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, forwardRef, FC } from "react";
 import { TMessage } from "../../../holeySocksSlice";
 import RepliedMessage from "./RepliedMessage";
 
@@ -12,7 +12,7 @@ type TRow = {
   setSize: (item: any, item2: any) => void;
 };
 
-const RowMessage = ({
+const RowMessage: FC<TRow> = ({
   data: msg,
   index,
   style,
@@ -20,7 +20,7 @@ const RowMessage = ({
   reply,
   windowWidth,
   setSize,
-}: TRow) => {
+}) => {
   const rowRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
